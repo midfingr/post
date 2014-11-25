@@ -1,4 +1,6 @@
 pacman -S ttf-dejavu alsa-utils xorg-server xorg-xinit xorg-twm xterm virtualbox-guest-utils
+depmod -a
 modprobe -a vboxguest vboxsf vboxvideo
 string="vboxguest\nvboxsf\nvboxvideo"
 printf "%b\n" "$string" > /etc/modules-load.d/virtualbox.conf
+systemctl enable vboxservice
